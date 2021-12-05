@@ -21,3 +21,8 @@ export interface Rover {
   launch_date: string;
   status: string;
 }
+
+export interface SearchRequest {
+  key: 'earth_date' | 'sol';
+  value: string;
+}
