@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Photo } from '../../components/Nasa/shared/nasa.types';
+import {
+  Photo,
+  Rover,
+  SearchRequest,
+} from '../../components/Nasa/shared/nasa.types';
 import { NasaService } from '../../services/nasa.service';
+
+const DEFAULT_ROVER = {
+  id: 5,
+  name: 'Curiosity',
+};
 
 @Component({
   selector: 'app-page-mars-photos',
@@ -9,6 +18,7 @@ import { NasaService } from '../../services/nasa.service';
 })
 export class MarsPhotosComponent implements OnInit {
   public photos: Photo[] = [];
+  public roverSelected: Rover = DEFAULT_ROVER;
   constructor(private nasaService: NasaService) {}
   ngOnInit(): void {
     console.log('MarsPhotosComponent ngOnInit');
@@ -28,4 +38,6 @@ export class MarsPhotosComponent implements OnInit {
       (photo) => photo.camera.name === cameraName
     );
   }
+
+  searchPhotos(searchRequest: SearchRequest) {}
 }

@@ -9,9 +9,12 @@ import { Rover, Camera, SearchRequest } from '../shared/nasa.types';
 export class SearchComponent implements OnInit {
   @Output() onSearch = new EventEmitter<SearchRequest>();
   @Input() roverSelected: Rover;
-  @Input() cameraList: Camera[];
 
   ngOnInit(): void {
     console.log('SearchComponent ');
+  }
+
+  handleSearch(searchRequest: SearchRequest): void {
+    this.onSearch.emit(searchRequest);
   }
 }

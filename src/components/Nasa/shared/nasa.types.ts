@@ -17,9 +17,9 @@ export interface Camera {
 export interface Rover {
   id: number;
   name: string;
-  landing_date: string;
-  launch_date: string;
-  status: string;
+  landing_date?: string;
+  launch_date?: string;
+  status?: string;
 }
 
 export interface SearchRequest {
