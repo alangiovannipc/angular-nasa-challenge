@@ -12,8 +12,20 @@ export class MarsPhotosComponent implements OnInit {
   constructor(private nasaService: NasaService) {}
   ngOnInit(): void {
     console.log('MarsPhotosComponent ngOnInit');
+    this.loadPhotos();
+  }
+
+  loadPhotos(): void {
     this.nasaService.getPhotos().subscribe((photos) => {
-      console.log('Photos ', photos);
+      console.log('loadPhotos ', photos);
+      this.photos = photos;
     });
+  }
+
+  filterPhotos(cameraName: string) {
+    if (cameraName.length === 0) return;
+    this.photos = this.photos.filter(
+      (photo) => photo.camera.name === cameraName
+    );
   }
 }

@@ -10,6 +10,6 @@ export class ListPhotosComponent implements OnInit {
   @Input('photos') photos: Photo[] = [];
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log('ListPhotosComponent photos ', this.photos);
   }
 }
