@@ -1,2 +1,2 @@
 export { MarsPhotosComponent } from './mars-photos';
-export { PageModule } from './page.module';
+export { PageModule } from './pages.module';
