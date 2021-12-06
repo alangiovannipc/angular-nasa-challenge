@@ -1,7 +1,11 @@
-<strong>List Photos Component</strong>
-
 <ng-container *ngIf="photos && photos.length > 0">
-  <ul>
-    <li *ngFor="let photo of photos">Id : {{ photo.id }}</li>
-  </ul>
+  <div class="container">
+    <div class="row gy-3">
+      <div class="col-4" *ngFor="let photo of photos">
+        <div class="p-3 border bg-light">
+          <img class="photo" src="{{ photo.img_src }}" />
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-container>

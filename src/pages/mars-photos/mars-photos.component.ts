@@ -29,7 +29,10 @@ export class MarsPhotosComponent implements OnInit {
   }
 
   filterPhotos(cameraName: string) {
-    if (cameraName.length === 0) return;
+    if (cameraName === 'all') {
+      this.loadPhotos();
+      return;
+    }
     this.photos = this.photos.filter(
       (photo) => photo.camera.name === cameraName
     );

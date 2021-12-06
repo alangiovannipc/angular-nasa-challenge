@@ -1,7 +1,7 @@
-Mars Component
 <ng-container>
-  <app-filter (onFilter)="filterPhotos($event)"> </app-filter>
-  <app-search (onSearch)="searchPhotos($event)"></app-search>
-  <br />
-  <app-list-photos [photos]="photos"> </app-list-photos>
+  <div class="container">
+    <app-search (onSearch)="searchPhotos($event)"></app-search>
+    <app-filter (onFilter)="filterPhotos($event)"> </app-filter>
+    <app-list-photos [photos]="photos"> </app-list-photos>
+  </div>
 </ng-container>

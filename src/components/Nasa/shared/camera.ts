@@ -1,11 +1,12 @@
-export const CAMERA = {
-  FHAZ: 'Front Hazard Avoidance Camera',
-  RHAZ: 'Rear Hazard Avoidance Camera',
-  MAST: 'Mast Camera',
-  CHEMCAM: 'Chemistry and Camera Complex',
-  MAHLI: 'Mars Hand Lens Imager',
-  MARDI: 'Mars Descent Imager',
-  NAVCAM: 'Navigation Camera',
-  PANCAM: 'Panoramic Camera',
-  MINITES: 'Miniature Thermal Emission Spectrometer  ',
-};
+export const CameraList = [
+  { code: 'FHAZ', description: 'Front Hazard Avoidance Camera' },
+  { code: 'FHAZ', description: 'Front Hazard Avoidance Camera' },
+  { code: 'RHAZ', description: 'Rear Hazard Avoidance Camera' },
+  { code: 'MAST', description: 'Mast Camera' },
+  { code: 'CHEMCAM', description: 'Chemistry and Camera Complex' },
+  { code: 'MAHLI', description: 'Mars Hand Lens Imager' },
+  { code: 'MARDI', description: 'Mars Descent Imager' },
+  { code: 'NAVCAM', description: 'Navigation Camera' },
+  { code: 'PANCAM', description: 'Panoramic Camera' },
+  { code: 'MINITES', description: 'Miniature Thermal Emission Spectrometer  ' },
+];

@@ -1,3 +1,7 @@
 .selected {
   background: red;
 }
+
+.row {
+  justify-content: center;
+}

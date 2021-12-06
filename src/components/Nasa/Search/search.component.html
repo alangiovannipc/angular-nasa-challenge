@@ -1,25 +1,33 @@
 <hr />
-<p>Search Component</p>
-<form [formGroup]="searchForm" (ngSubmit)="search()">
-  <p>
-    <label>Rover:</label>
-    <select formControlName="rover">
-      <option value="curiosity">Curiosity</option>
-      <option value="opportunity">Opportunity</option>
-      <option value="spirit">Spirit</option>
-    </select>
-  </p>
-  <p>
-    <label>Earth date:</label>
-    <input type="text" formControlName="earthDate" />
-  </p>
-  <p>
-    <label>Sol:</label>
-    <input type="text" formControlName="sol" />
-  </p>
-  <p>
-    <button type="submit">Search</button>
-  </p>
-</form>
-
-<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Rover</label>
+          <select class="form-select" formControlName="rover">
+            <option value="curiosity">Curiosity</option>
+            <option value="opportunity">Opportunity</option>
+            <option value="spirit">Spirit</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label"
+            >Earth Date</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            formControlName="earthDate"
+            placeholder="dd-mm-yyyy"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Sol</label>
+          <input type="text" class="form-control" formControlName="sol" />
+        </div>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>

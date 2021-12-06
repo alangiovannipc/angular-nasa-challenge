@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { DEFAULT_ROVER } from '../../../shared/shared.default';
+import {
+  DEFAULT_ROVER,
+  DEFAULT_SOL,
+  DEFAULT_ROVER_SELECTED,
+} from '../../../shared/shared.default';
 import { Rover, Camera, SearchRequest } from '../shared/nasa.types';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -12,9 +16,9 @@ export class SearchComponent implements OnInit {
   @Output() onSearch = new EventEmitter<SearchRequest[]>();
   public roverSelected: Rover = DEFAULT_ROVER;
   public searchForm = new FormGroup({
-    rover: new FormControl(''),
+    rover: new FormControl(DEFAULT_ROVER_SELECTED),
     earthDate: new FormControl(''),
-    sol: new FormControl(''),
+    sol: new FormControl(DEFAULT_SOL),
   });
 
   ngOnInit(): void {
