@@ -23,6 +23,6 @@ export interface Rover {
 }
 
 export interface SearchRequest {
-  key: 'earth_date' | 'sol';
+  key: 'earth_date' | 'sol' | 'rover';
   value: string;
 }

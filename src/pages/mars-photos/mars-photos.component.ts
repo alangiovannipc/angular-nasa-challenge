@@ -5,11 +5,7 @@ import {
   SearchRequest,
 } from '../../components/Nasa/shared/nasa.types';
 import { NasaService } from '../../services/nasa.service';
-
-const DEFAULT_ROVER = {
-  id: 5,
-  name: 'Curiosity',
-};
+import { DEFAULT_ROVER } from '../../shared/shared.default';
 
 @Component({
   selector: 'app-page-mars-photos',
@@ -39,5 +35,5 @@ export class MarsPhotosComponent implements OnInit {
     );
   }
 
-  searchPhotos(searchRequest: SearchRequest) {}
+  searchPhotos(searchRequest: SearchRequest[]) {}
 }

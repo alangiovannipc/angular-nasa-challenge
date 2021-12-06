@@ -1,15 +1,30 @@
 <hr />
 <p>Search Component</p>
-<button *ngClass="{ selected: roverSelected && roverSelected.id == 5 }">
+<button [ngClass]="{ selected: roverSelected.name == 'Curiosity' }">
   Curiosity
 </button>
-<button>Oportunity</button>
-<button>Spirit</button>
+<button [ngClass]="{ selected: roverSelected.name == 'Oportunity' }">
+  Oportunity
+</button>
+<button [ngClass]="{ selected: roverSelected.name == 'Spirit' }">Spirit</button>
 <br />
 <br />
-<button>Search Earth Date</button>
-<br />
-<br />
-<button>Search Sol</button>
-<br />
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <p>
+    <label>Rover:</label>
+    <input type="text" formControlName="rover" />
+  </p>
+  <p>
+    <label>Earth date:</label>
+    <input type="text" formControlName="earthDate" />
+  </p>
+  <p>
+    <label>Sol:</label>
+    <input type="text" formControlName="sol" />
+  </p>
+  <p>
+    <button type="submit">Search</button>
+  </p>
+</form>
+
 <hr />
