@@ -1,18 +1,13 @@
 <hr />
 <p>Search Component</p>
-<button [ngClass]="{ selected: roverSelected.name == 'Curiosity' }">
-  Curiosity
-</button>
-<button [ngClass]="{ selected: roverSelected.name == 'Oportunity' }">
-  Oportunity
-</button>
-<button [ngClass]="{ selected: roverSelected.name == 'Spirit' }">Spirit</button>
-<br />
-<br />
 <form [formGroup]="searchForm" (ngSubmit)="search()">
   <p>
     <label>Rover:</label>
-    <input type="text" formControlName="rover" />
+    <select formControlName="rover">
+      <option value="curiosity">Curiosity</option>
+      <option value="opportunity">Opportunity</option>
+      <option value="spirit">Spirit</option>
+    </select>
   </p>
   <p>
     <label>Earth date:</label>
