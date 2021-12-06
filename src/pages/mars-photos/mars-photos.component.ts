@@ -19,17 +19,18 @@ export class MarsPhotosComponent implements OnInit {
   public photos: Photo[] = [];
   public roverSelected: Rover = DEFAULT_ROVER;
   private searchRequest: SearchRequest[] = DEFAULT_NASA_REQUEST;
+  public page: number = 1;
   constructor(private nasaService: NasaService) {}
   ngOnInit(): void {
-    console.log('MarsPhotosComponent ngOnInit');
     this.loadPhotos();
   }
 
   loadPhotos(): void {
-    this.nasaService.searchPhotos(this.searchRequest).subscribe((result) => {
-      console.log('loadPhotos ', result.photos);
-      this.photos = result.photos;
-    });
+    this.nasaService
+      .searchPhotos(this.searchRequest, this.page)
+      .subscribe((result) => {
+        this.photos = result.photos;
+      });
   }
 
   filterPhotos(cameraName: string) {
@@ -44,14 +45,25 @@ export class MarsPhotosComponent implements OnInit {
 
   searchPhotos(searchRequest: SearchRequest[]) {
     this.cleanPhotos();
-    console.log('MarsPhotosComponent searchPhotos ', searchRequest);
-    this.nasaService.searchPhotos(searchRequest).subscribe((result) => {
-      console.log('searchPhotos ', result);
-      this.photos = result.photos;
-    });
+    this.searchRequest = searchRequest;
+    this.nasaService
+      .searchPhotos(searchRequest, this.page)
+      .subscribe((result) => {
+        this.photos = result.photos;
+      });
   }
 
   cleanPhotos() {
     this.photos = [];
+  }
+
+  previousPage() {
+    this.page -= 1;
+    this.loadPhotos();
+  }
+
+  nextPage() {
+    this.page += 1;
+    this.loadPhotos();
   }
 }

@@ -2,6 +2,25 @@
   <div class="container">
     <app-search (onSearch)="searchPhotos($event)"></app-search>
     <app-filter (onFilter)="filterPhotos($event)"> </app-filter>
+    <div class="row mt-3 ms-1">
+      <div class="col-6">
+        <button
+          (click)="previousPage()"
+          class="btn btn-primary"
+          [disabled]="page == 1"
+        >
+          Previous
+        </button>
+        &nbsp;
+        <button
+          class="btn btn-primary"
+          [disabled]="page == 10"
+          (click)="nextPage()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
     <app-list-photos [photos]="photos"> </app-list-photos>
   </div>
 </ng-container>
