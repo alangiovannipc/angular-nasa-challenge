@@ -35,5 +35,7 @@ export class MarsPhotosComponent implements OnInit {
     );
   }
 
-  searchPhotos(searchRequest: SearchRequest[]) {}
+  searchPhotos(searchRequest: SearchRequest[]) {
+    console.log('MarsPhotosComponent searchPhotos ', searchRequest);
+  }
 }
