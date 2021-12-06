@@ -22,9 +22,9 @@ export class MarsPhotosComponent implements OnInit {
   }
 
   loadPhotos(): void {
-    this.nasaService.getPhotos().subscribe((photos) => {
-      console.log('loadPhotos ', photos);
-      this.photos = photos;
+    this.nasaService.getPhotos().subscribe((result) => {
+      console.log('loadPhotos ', result.photos);
+      this.photos = result.photos;
     });
   }
 
@@ -37,5 +37,8 @@ export class MarsPhotosComponent implements OnInit {
 
   searchPhotos(searchRequest: SearchRequest[]) {
     console.log('MarsPhotosComponent searchPhotos ', searchRequest);
+    this.nasaService.searchPhotos(searchRequest).subscribe((result) => {
+      console.log('searchPhotos ', result);
+    });
   }
 }
