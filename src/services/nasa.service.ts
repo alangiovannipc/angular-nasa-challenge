@@ -1,8 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay, catchError, retry } from 'rxjs/operators';
-import { PHOTOS_MOCK } from '../components/Nasa/nasa.mock';
-import { Photo, SearchRequest } from '../components/Nasa/shared/nasa.types';
+import { SearchRequest } from '../components/Nasa/shared/nasa.types';
 import { HttpClient } from '@angular/common/http';
 import { API_KEY_NASA, API_MARS_PHOTOS } from '../shared/config';
 import { RoverPhotoResponse } from './nasa.service.types';
@@ -24,7 +22,7 @@ export class NasaService {
     );
     const rovers = rover || 'curiosity';
     const searchParams = searchRequest.reduce((previous, current) => {
-      if (current?.key && current?.value.trim() && current?.key != 'rover') {
+      if (current?.key && current?.value && current?.key != 'rover') {
         return `${previous}&${current?.key}=${current?.value}`;
       }
       return previous;

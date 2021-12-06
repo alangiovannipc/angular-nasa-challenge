@@ -5,7 +5,10 @@ import {
   SearchRequest,
 } from '../../components/Nasa/shared/nasa.types';
 import { NasaService } from '../../services/nasa.service';
-import { DEFAULT_ROVER } from '../../shared/shared.default';
+import {
+  DEFAULT_ROVER,
+  DEFAULT_NASA_REQUEST,
+} from '../../shared/shared.default';
 
 @Component({
   selector: 'app-page-mars-photos',
@@ -15,6 +18,7 @@ import { DEFAULT_ROVER } from '../../shared/shared.default';
 export class MarsPhotosComponent implements OnInit {
   public photos: Photo[] = [];
   public roverSelected: Rover = DEFAULT_ROVER;
+  private searchRequest: SearchRequest[] = DEFAULT_NASA_REQUEST;
   constructor(private nasaService: NasaService) {}
   ngOnInit(): void {
     console.log('MarsPhotosComponent ngOnInit');
@@ -22,7 +26,7 @@ export class MarsPhotosComponent implements OnInit {
   }
 
   loadPhotos(): void {
-    this.nasaService.getPhotos().subscribe((result) => {
+    this.nasaService.searchPhotos(this.searchRequest).subscribe((result) => {
       console.log('loadPhotos ', result.photos);
       this.photos = result.photos;
     });
@@ -39,10 +43,15 @@ export class MarsPhotosComponent implements OnInit {
   }
 
   searchPhotos(searchRequest: SearchRequest[]) {
+    this.cleanPhotos();
     console.log('MarsPhotosComponent searchPhotos ', searchRequest);
     this.nasaService.searchPhotos(searchRequest).subscribe((result) => {
       console.log('searchPhotos ', result);
       this.photos = result.photos;
     });
+  }
+
+  cleanPhotos() {
+    this.photos = [];
   }
 }
