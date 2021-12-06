@@ -39,6 +39,7 @@ export class MarsPhotosComponent implements OnInit {
     console.log('MarsPhotosComponent searchPhotos ', searchRequest);
     this.nasaService.searchPhotos(searchRequest).subscribe((result) => {
       console.log('searchPhotos ', result);
+      this.photos = result.photos;
     });
   }
 }

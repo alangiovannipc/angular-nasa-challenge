@@ -22,13 +22,17 @@ export class NasaService {
     searchRequest: SearchRequest[],
     page = 1
   ): Observable<RoverPhotoResponse> {
+    const { value: rover } = searchRequest.find(
+      (param) => param.key == 'rover'
+    );
+    const rovers = rover || 'curiosity';
     const searchParams = searchRequest.reduce((previous, current) => {
-      if (current?.key && current?.value.trim()) {
+      if (current?.key && current?.value.trim() && current?.key != 'rover') {
         return `${previous}&${current?.key}=${current?.value}`;
       }
       return previous;
     }, '');
-    const requestUrl = `${API_MARS_PHOTOS}/rovers/curiosity/photos?page=${page}&api_key=${API_KEY_NASA}${searchParams}`;
+    const requestUrl = `${API_MARS_PHOTOS}/rovers/${rovers}/photos?page=${page}&api_key=${API_KEY_NASA}${searchParams}`;
     console.log('searchParams ', searchParams);
     console.log('NasaService ', requestUrl);
     return this.http.get<RoverPhotoResponse>(requestUrl);
